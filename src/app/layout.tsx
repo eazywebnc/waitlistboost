@@ -19,11 +19,13 @@ export const metadata: Metadata = {
     siteName: 'WaitlistBoost',
     type: 'website',
     locale: 'en_US',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'WaitlistBoost — Smart Waitlist Management' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'WaitlistBoost — Turn Launches Into Events',
     description: 'Smart waitlist management with viral referrals. Collect emails, build hype, launch big.',
+    images: ['/og-image.png'],
   },
 }
 
@@ -35,13 +37,17 @@ const jsonLd = {
   operatingSystem: 'Web',
   url: 'https://waitlistboost.eazyweb.nc',
   description: 'Smart waitlist management for product launches with viral referral engine.',
-  offers: { '@type': 'AggregateOffer', lowPrice: '0', highPrice: '79', priceCurrency: 'USD', offerCount: '3' },
+  offers: [
+    { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Pro', price: '29', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Business', price: '79', priceCurrency: 'USD' },
+  ],
   creator: { '@type': 'Organization', name: 'EazyWebNC', url: 'https://eazyweb.nc' },
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en-US" className="dark">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
